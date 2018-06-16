@@ -7,7 +7,8 @@ import {RedComponentComponent} from '../red-component/red-component.component'
 @NgModule({
   imports: [
     CommonModule,
-    AgGridModule
+    AgGridModule.withComponents(
+      [RedComponentComponent])
   ],
   declarations: [OwnerDashboardComponent,RedComponentComponent],
   exports:[OwnerDashboardComponent],
