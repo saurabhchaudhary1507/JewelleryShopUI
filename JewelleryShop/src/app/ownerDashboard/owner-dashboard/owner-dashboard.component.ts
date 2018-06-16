@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from "../../login/services/data-service.service";
 import {GridOptions} from "ag-grid";
-import {RedComponentComponent} from "../red-component/red-component.component";
+
 @Component({
   selector: 'app-owner-dashboard',
   templateUrl: './owner-dashboard.component.html',
   styleUrls: ['./owner-dashboard.component.scss']
 })
 export class OwnerDashboardComponent implements OnInit {
+  private params: any;
+
+  agInit(params: any): void {
+      this.params = params;
+  }
   private gridOptions: GridOptions;
   message:string;
   constructor(private data: DataServiceService) {
@@ -21,7 +26,6 @@ export class OwnerDashboardComponent implements OnInit {
       {
           headerName: "Value",
           field: "value",
-          cellRendererFramework: RedComponentComponent,
           width: 100
       },
 
